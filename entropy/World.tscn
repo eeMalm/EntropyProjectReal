@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://0wr7g85ntss3"]
+
+[ext_resource type="PackedScene" uid="uid://cyygmes76je0j" path="res://Player.tscn" id="1_egmpb"]
+[ext_resource type="Texture2D" uid="uid://b7ppci48q6nbj" path="res://BlueGradientBackground.png" id="2_5no2t"]
+[ext_resource type="Texture2D" uid="uid://cl4i1nsc4wk57" path="res://Platfrom2Blue.png" id="2_nnxpd"]
+[ext_resource type="Texture2D" uid="uid://cky6m1ob6u34k" path="res://Platform2.png" id="4_07rcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikxdl"]
+size = Vector2(280, 70)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_egmpb")]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+position = Vector2(0, 100)
+
+[node name="Platform" type="Sprite2D" parent="Platform"]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("2_nnxpd")
+
+[node name="Platform2" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ikxdl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="BlueGradientBackground" type="Sprite2D" parent="."]
+z_index = -10
+texture_filter = 1
+position = Vector2(25, 24)
+scale = Vector2(7, 7)
+texture = ExtResource("2_5no2t")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+position = Vector2(0, 100)
+
+[node name="Platform" type="Sprite2D" parent="Platform2"]
+texture_filter = 1
+position = Vector2(321, -2)
+scale = Vector2(7, 7)
+texture = ExtResource("4_07rcc")
+
+[node name="Platform2" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(322, -1)
+shape = SubResource("RectangleShape2D_ikxdl")
