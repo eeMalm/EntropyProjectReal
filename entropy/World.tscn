@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://0wr7g85ntss3"]
+[gd_scene load_steps=8 format=3 uid="uid://0wr7g85ntss3"]
 
 [ext_resource type="PackedScene" uid="uid://cyygmes76je0j" path="res://Player.tscn" id="1_egmpb"]
-[ext_resource type="Texture2D" uid="uid://b7ppci48q6nbj" path="res://BlueGradientBackground.png" id="2_5no2t"]
 [ext_resource type="Texture2D" uid="uid://cl4i1nsc4wk57" path="res://Platfrom2Blue.png" id="2_nnxpd"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_htjjv"]
+[ext_resource type="Texture2D" uid="uid://cy5brfjyamnmp" path="res://CityBackground.png" id="3_rig4i"]
+[ext_resource type="Texture2D" uid="uid://c18qtv6i7shxf" path="res://BlueTriangleGradient.png" id="3_yyt8v"]
 [ext_resource type="Texture2D" uid="uid://cky6m1ob6u34k" path="res://Platform2.png" id="4_07rcc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikxdl"]
@@ -10,40 +12,80 @@ size = Vector2(280, 70)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_egmpb")]
+[node name="Player" parent="." instance=ExtResource("1_egmpb")]
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_htjjv")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_offset = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("3_yyt8v")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0)
+motion_offset = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0.101961, 0.141176, 0.243137, 0.87451)
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("3_rig4i")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="Platform2" type="StaticBody2D" parent="Level"]
+self_modulate = Color(0, 0, 0, 0)
+position = Vector2(492, 214)
+
+[node name="Platform" type="Sprite2D" parent="Level/Platform2"]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("4_07rcc")
+
+[node name="Platform2" type="CollisionShape2D" parent="Level/Platform2"]
+shape = SubResource("RectangleShape2D_ikxdl")
+
+[node name="Platform" type="StaticBody2D" parent="Level"]
 self_modulate = Color(0, 0, 0, 0)
 position = Vector2(0, 100)
 
-[node name="Platform" type="Sprite2D" parent="Platform"]
+[node name="Platform" type="Sprite2D" parent="Level/Platform"]
 texture_filter = 1
 scale = Vector2(7, 7)
 texture = ExtResource("2_nnxpd")
 
-[node name="Platform2" type="CollisionShape2D" parent="Platform"]
+[node name="Platform2" type="CollisionShape2D" parent="Level/Platform"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_ikxdl")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="BlueGradientBackground" type="Sprite2D" parent="."]
-z_index = -10
-texture_filter = 1
-position = Vector2(25, 24)
-scale = Vector2(7, 7)
-texture = ExtResource("2_5no2t")
-
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform3" type="StaticBody2D" parent="Level"]
 self_modulate = Color(0, 0, 0, 0)
-position = Vector2(0, 100)
+position = Vector2(903, 55)
 
-[node name="Platform" type="Sprite2D" parent="Platform2"]
+[node name="Platform" type="Sprite2D" parent="Level/Platform3"]
 texture_filter = 1
-position = Vector2(321, -2)
 scale = Vector2(7, 7)
 texture = ExtResource("4_07rcc")
 
-[node name="Platform2" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(322, -1)
+[node name="Platform2" type="CollisionShape2D" parent="Level/Platform3"]
+shape = SubResource("RectangleShape2D_ikxdl")
+
+[node name="Platform4" type="StaticBody2D" parent="Level"]
+self_modulate = Color(0, 0, 0, 0)
+position = Vector2(1239, -135)
+rotation = -1.5708
+
+[node name="Platform" type="Sprite2D" parent="Level/Platform4"]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("4_07rcc")
+
+[node name="Platform2" type="CollisionShape2D" parent="Level/Platform4"]
 shape = SubResource("RectangleShape2D_ikxdl")
