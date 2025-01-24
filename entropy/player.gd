@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 5000.0
 var MAX_SPEED = 600.0
-var speedmax
+var speedmax = 600.0
 var FRICTION = 0.25
 var JUMP_VELOCITY = -1000.0
 var WALLJUMP_VELOCITY = -800.0
@@ -18,18 +18,23 @@ var WJUMPS_AMOUNT = 10
 var isDashing = false
 
 func _physics_process(delta: float) -> void:
-	speedmax = MAX_SPEED
+	
 	var direction := Input.get_axis("ui_left", "ui_right")
 	# Add the gravity.
 	if is_on_floor():
 		dashes = DASH_AMOUNT
 		jumps = JUMP_AMOUNT
 		walljumps = WJUMPS_AMOUNT
-		var floor = get_floor()
-		if floor && floor.has_method("velocity"):
-			speedmax += floor.velocity.x
-			velocity = floor.velocity
+		var Floor = get_floor()
 		
+		if Floor && "platformvelocity" in Floor:
+			if speedmax == MAX_SPEED:
+				print("stepped on moving platform")
+				velocity = Floor.platformvelocity
+				
+			speedmax += abs(Floor.platformvelocity.x)
+		else:	
+			speedmax = MAX_SPEED
 	if not is_on_floor():
 		
 		if velocity.y > 0:
@@ -52,12 +57,12 @@ func _physics_process(delta: float) -> void:
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		
 		if direction == 1:
-			print(velocity.x)
+			
 			if velocity.x < speedmax:
 				velocity.x += SPEED * delta;
 		
 		elif direction == -1:
-			print(velocity.x)
+			
 			if velocity.x > -speedmax:
 				velocity.x -= SPEED * delta;
 		else:
@@ -93,6 +98,7 @@ func get_floor() -> Object:
 	if is_on_floor():
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
-			if collision.normal == Vector2.UP:
-				return collision.collider
+			if collision.get_collider().is_in_group("Moving Platform"):
+				return collision.get_collider()
+				
 	return null

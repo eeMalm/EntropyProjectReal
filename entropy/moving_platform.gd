@@ -5,14 +5,14 @@ extends StaticBody2D
 @export var interval: int
 
 var prev_position: Vector2
-var velocity: Vector2
+var platformvelocity: Vector2
 
 func _ready():
 	prev_position = position
 	run()
 
 func _process(delta):
-	velocity = (position - prev_position) / delta  # Calculate platform velocity
+	platformvelocity = (position - prev_position) / delta  # Calculate platform velocity
 	prev_position = position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
