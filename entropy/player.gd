@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 5000.0
 var MAX_SPEED = 600.0
+var speedmax
 var FRICTION = 0.25
 var JUMP_VELOCITY = -1000.0
 var WALLJUMP_VELOCITY = -800.0
@@ -17,13 +18,18 @@ var WJUMPS_AMOUNT = 10
 var isDashing = false
 
 func _physics_process(delta: float) -> void:
-	
+	speedmax = MAX_SPEED
 	var direction := Input.get_axis("ui_left", "ui_right")
 	# Add the gravity.
 	if is_on_floor():
 		dashes = DASH_AMOUNT
 		jumps = JUMP_AMOUNT
 		walljumps = WJUMPS_AMOUNT
+		var floor = get_floor()
+		if floor && floor.has_method("velocity"):
+			speedmax += floor.velocity.x
+			velocity = floor.velocity
+		
 	if not is_on_floor():
 		
 		if velocity.y > 0:
@@ -47,12 +53,12 @@ func _physics_process(delta: float) -> void:
 		
 		if direction == 1:
 			print(velocity.x)
-			if velocity.x < MAX_SPEED:
+			if velocity.x < speedmax:
 				velocity.x += SPEED * delta;
 		
 		elif direction == -1:
 			print(velocity.x)
-			if velocity.x > -MAX_SPEED:
+			if velocity.x > -speedmax:
 				velocity.x -= SPEED * delta;
 		else:
 			velocity.x *= FRICTION
@@ -82,3 +88,11 @@ func _on_dash_timer_timeout():
 		
 func die():
 	get_tree().quit()
+
+func get_floor() -> Object:
+	if is_on_floor():
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if collision.normal == Vector2.UP:
+				return collision.collider
+	return null

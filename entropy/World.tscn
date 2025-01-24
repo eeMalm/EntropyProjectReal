@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0wr7g85ntss3"]
+[gd_scene load_steps=9 format=3 uid="uid://0wr7g85ntss3"]
 
 [ext_resource type="PackedScene" uid="uid://cyygmes76je0j" path="res://Player.tscn" id="1_egmpb"]
 [ext_resource type="Texture2D" uid="uid://cl4i1nsc4wk57" path="res://Platfrom2Blue.png" id="2_nnxpd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy5brfjyamnmp" path="res://CityBackground.png" id="3_rig4i"]
 [ext_resource type="Texture2D" uid="uid://c18qtv6i7shxf" path="res://BlueTriangleGradient.png" id="3_yyt8v"]
 [ext_resource type="Texture2D" uid="uid://cky6m1ob6u34k" path="res://Platform2.png" id="4_07rcc"]
+[ext_resource type="PackedScene" uid="uid://dogclfpne72a5" path="res://MovingPlatform.tscn" id="7_avy72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikxdl"]
 size = Vector2(280, 70)
@@ -104,3 +105,8 @@ texture = ExtResource("4_07rcc")
 
 [node name="Platform2" type="CollisionShape2D" parent="Level/Platform4"]
 shape = SubResource("RectangleShape2D_ikxdl")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("7_avy72")]
+startpos = Vector2(200, -200)
+targetpos = Vector2(-200, -200)
+interval = 2
