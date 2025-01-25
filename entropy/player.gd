@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 var SPEED = 5000.0
 var MAX_SPEED = 600.0
-var speedmax = 600.0
 var FRICTION = 0.25
 var JUMP_VELOCITY = -1000.0
 var WALLJUMP_VELOCITY = -800.0
@@ -17,6 +16,9 @@ var walljumps = 10
 var WJUMPS_AMOUNT = 10
 var isDashing = false
 
+var impartedvelocity = Vector2(0.0, 0.0)
+
+
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -28,20 +30,28 @@ func _physics_process(delta: float) -> void:
 		var Floor = get_floor()
 		
 		if Floor && "platformvelocity" in Floor:
-			if speedmax == MAX_SPEED:
-				print("stepped on moving platform")
-				velocity = Floor.platformvelocity
-				
-			speedmax += abs(Floor.platformvelocity.x)
-		else:	
-			speedmax = MAX_SPEED
+			var temp = velocity
+			velocity.x = Floor.platformvelocity.x
+			move_and_slide()
+			velocity = temp
+			impartedvelocity.x = Floor.platformvelocity.x
+			
+		elif is_on_floor():
+			impartedvelocity = Vector2(0.0, 0.0)
 	if not is_on_floor():
+		if impartedvelocity != Vector2(0.0, 0.0):
+			var temp = velocity
+			velocity = Vector2(0.0, 0.0)
+			velocity.x = impartedvelocity.x
+			move_and_slide()
+			velocity = temp
 		
 		if velocity.y > 0:
 			velocity.y += GRAVITY * 1.3 * delta
 		else:
 			velocity.y += GRAVITY * 0.8 * delta
-			
+	if is_on_wall():
+		impartedvelocity = Vector2(0.0, 0.0)
 	if not isDashing:
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_up"):
@@ -58,12 +68,12 @@ func _physics_process(delta: float) -> void:
 		
 		if direction == 1:
 			
-			if velocity.x < speedmax:
+			if velocity.x < MAX_SPEED:
 				velocity.x += SPEED * delta;
 		
 		elif direction == -1:
 			
-			if velocity.x > -speedmax:
+			if velocity.x > -MAX_SPEED:
 				velocity.x -= SPEED * delta;
 		else:
 			velocity.x *= FRICTION

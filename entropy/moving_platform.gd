@@ -20,7 +20,7 @@ func run():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", startpos, interval)
 	tween.tween_property(self, "position", targetpos, interval)
-	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.connect("finished", Callable(self, "run"))
 	
