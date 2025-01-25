@@ -52,6 +52,10 @@ func _physics_process(delta: float) -> void:
 			velocity.y += GRAVITY * 0.8 * delta
 	if is_on_wall():
 		impartedvelocity = Vector2(0.0, 0.0)
+		if isDashing:
+			velocity = Vector2(0.0, 0.0)
+			isDashing == false
+		
 	if not isDashing:
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_up"):
@@ -63,8 +67,6 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY
 				jumps -= 1
 			
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
 		
 		if direction == 1:
 			
@@ -97,9 +99,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_dash_timer_timeout():
-	isDashing = false
-	if abs(velocity.x) > MAX_SPEED:
+	if abs(velocity.x) > MAX_SPEED && isDashing:
 		velocity.x *= 0.1
+	isDashing = false
+	
 		
 func die():
 	get_tree().quit()
