@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 			$Dash_Timer.start()
 			velocity.y = 0
 			dashes -= 1
-	if(position.y > 1400):
+	if(position.y > 800):
 		die()
 	move_and_slide()
 
@@ -105,7 +105,7 @@ func _on_dash_timer_timeout():
 	
 		
 func die():
-	get_tree().quit()
+	get_parent().get_node("Effects").fade()
 
 func get_floor() -> Object:
 	if is_on_floor():
