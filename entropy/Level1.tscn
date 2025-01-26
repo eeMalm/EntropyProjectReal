@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcrey1w6sj0kp"]
+
+[ext_resource type="PackedScene" uid="uid://c8o3tu8fgqxs7" path="res://Player.tscn" id="1_8wgvr"]
+[ext_resource type="PackedScene" uid="uid://d3cqba2hq810u" path="res://ParralaxBackground.tscn" id="2_8y68m"]
+[ext_resource type="PackedScene" uid="uid://d1mt20wamn5fk" path="res://Scenes/Components/platform.tscn" id="3_q6red"]
+[ext_resource type="Texture2D" uid="uid://badh7ak3dgk05" path="res://Assets/Platforms/1x4platform.png" id="4_gia5e"]
+[ext_resource type="Texture2D" uid="uid://bxw7ydh4y6r7s" path="res://Assets/Platforms/BigPlatform.png" id="4_x0tnr"]
+[ext_resource type="PackedScene" uid="uid://cfwmw8hnvi62l" path="res://Scenes/Components/Camera.tscn" id="5_n1c0d"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8wgvr")]
+position = Vector2(-1740, -330)
+
+[node name="Parallax2D" parent="." instance=ExtResource("2_8y68m")]
+BackgroundColor = Color(0.071257, 0.113011, 0.368683, 1)
+
+[node name="Platform" parent="." instance=ExtResource("3_q6red")]
+position = Vector2(-1370, 193)
+PlatformSprite = ExtResource("4_x0tnr")
+color = Color(0.126208, 0.462196, 0.645881, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("5_n1c0d")]
+position = Vector2(-2, -32)
+
+[node name="Platform2" parent="." instance=ExtResource("3_q6red")]
+position = Vector2(221, -189)
+PlatformSprite = ExtResource("4_gia5e")
+color = Color(0.134553, 0, 0.855981, 1)

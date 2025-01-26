@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ppci48q6nbj"
-path="res://.godot/imported/BlueGradientBackground.png-441b0eded06a6bc239bfc150e1e4a058.ctex"
+uid="uid://dhv5txs8pvs2c"
+path="res://.godot/imported/YellowRedBackground.png-46854178b81237c18be54c4fbfc42cb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BlueGradientBackground.png"
-dest_files=["res://.godot/imported/BlueGradientBackground.png-441b0eded06a6bc239bfc150e1e4a058.ctex"]
+source_file="res://Assets/Backgrounds/YellowRedBackground.png"
+dest_files=["res://.godot/imported/YellowRedBackground.png-46854178b81237c18be54c4fbfc42cb8.ctex"]
 
 [params]
 

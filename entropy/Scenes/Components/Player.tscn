@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8o3tu8fgqxs7"]
+[gd_scene load_steps=5 format=3 uid="uid://cyygmes76je0j"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_7mqdr"]
-[ext_resource type="Texture2D" uid="uid://wuh6aoqow756" path="res://Assets/icon.svg" id="2_mma0o"]
-[ext_resource type="AudioStream" path="res://Pipe.mp3" id="3_8jfsm"]
+[ext_resource type="Script" path="res://player.gd" id="1_olopp"]
+[ext_resource type="Texture2D" uid="uid://wuh6aoqow756" path="res://icon.svg" id="2_q2gjm"]
+[ext_resource type="AudioStream" uid="uid://s1aqi3ona36u" path="res://Pipe.mp3" id="3_8jfsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6ykx"]
 size = Vector2(114, 116)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_7mqdr")
+script = ExtResource("1_olopp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mma0o")
+texture = ExtResource("2_q2gjm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

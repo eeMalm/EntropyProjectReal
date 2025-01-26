@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jxd4rq0lofe1"
-path="res://.godot/imported/BlackWhiteParticle.png-3c82fac1defb914030b852c81cc2eae3.ctex"
+uid="uid://d2m7euds6mgbi"
+path="res://.godot/imported/RedParticle.png-5d444c6ef2481fd91f65c9f5d3b5c726.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BlackWhiteParticle.png"
-dest_files=["res://.godot/imported/BlackWhiteParticle.png-3c82fac1defb914030b852c81cc2eae3.ctex"]
+source_file="res://Assets/RedParticle.png"
+dest_files=["res://.godot/imported/RedParticle.png-5d444c6ef2481fd91f65c9f5d3b5c726.ctex"]
 
 [params]
 

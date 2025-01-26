@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dogclfpne72a5"]
+
+[ext_resource type="Script" path="res://moving_platform.gd" id="1_i7xqh"]
+[ext_resource type="Texture2D" uid="uid://cl4i1nsc4wk57" path="res://Platfrom2Blue.png" id="1_vq8w0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecujd"]
+size = Vector2(280, 70)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["Moving Platform"]]
+script = ExtResource("1_i7xqh")
+startpos = Vector2(100, 0)
+targetpos = Vector2(-100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Moving Platform"]]
+texture_filter = 1
+scale = Vector2(7, 7)
+texture = ExtResource("1_vq8w0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Moving Platform"]]
+shape = SubResource("RectangleShape2D_ecujd")

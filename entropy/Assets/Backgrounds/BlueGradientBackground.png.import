@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg8h0cyrp4m83"
-path="res://.godot/imported/Platform3.png-0b0fd63d1f4d58b069d4f4d55cfc0960.ctex"
+uid="uid://b7ppci48q6nbj"
+path="res://.godot/imported/BlueGradientBackground.png-37e8295e5d938fcca82514aabe8bcfb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Platform3.png"
-dest_files=["res://.godot/imported/Platform3.png-0b0fd63d1f4d58b069d4f4d55cfc0960.ctex"]
+source_file="res://Assets/Backgrounds/BlueGradientBackground.png"
+dest_files=["res://.godot/imported/BlueGradientBackground.png-37e8295e5d938fcca82514aabe8bcfb5.ctex"]
 
 [params]
 

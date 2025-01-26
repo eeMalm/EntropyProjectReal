@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2m7euds6mgbi"
-path="res://.godot/imported/RedParticle.png-714fc5a28823cf422e1f596df5c72535.ctex"
+uid="uid://dygolgrk0hy20"
+path="res://.godot/imported/2x8platform.png-0e67405ea7a36d68651652431375d5a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RedParticle.png"
-dest_files=["res://.godot/imported/RedParticle.png-714fc5a28823cf422e1f596df5c72535.ctex"]
+source_file="res://Assets/Platforms/2x8platform.png"
+dest_files=["res://.godot/imported/2x8platform.png-0e67405ea7a36d68651652431375d5a8.ctex"]
 
 [params]
 

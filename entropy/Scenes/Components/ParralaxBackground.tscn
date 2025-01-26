@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7wjbrm45ei7"]
+
+[ext_resource type="Texture2D" uid="uid://sxycdcw10xog" path="res://BackgroundGrey.png" id="1_4bwnl"]
+[ext_resource type="Script" path="res://parralax_background.gd" id="1_u5soi"]
+[ext_resource type="Texture2D" uid="uid://cy5brfjyamnmp" path="res://CityBackground.png" id="2_4o518"]
+
+[node name="Parallax2D" type="ParallaxBackground"]
+script = ExtResource("1_u5soi")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_offset = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_4bwnl")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 0.8)
+motion_offset = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+modulate = Color(0.237539, 0.237539, 0.237539, 0.941176)
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("2_4o518")

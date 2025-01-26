@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl4i1nsc4wk57"
-path="res://.godot/imported/Platfrom2Blue.png-982e0b324c9edc809302948a85df6975.ctex"
+uid="uid://c18qtv6i7shxf"
+path="res://.godot/imported/BlueTriangleGradient.png-df53eab14154af35ad0ac4c09489cad4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Platfrom2Blue.png"
-dest_files=["res://.godot/imported/Platfrom2Blue.png-982e0b324c9edc809302948a85df6975.ctex"]
+source_file="res://Assets/Backgrounds/BlueTriangleGradient.png"
+dest_files=["res://.godot/imported/BlueTriangleGradient.png-df53eab14154af35ad0ac4c09489cad4.ctex"]
 
 [params]
 

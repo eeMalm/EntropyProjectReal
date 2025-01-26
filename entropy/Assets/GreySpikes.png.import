@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhv5txs8pvs2c"
-path="res://.godot/imported/YellowRedBackground.png-8097a880a5c20995b9f7adcc06cc0e2b.ctex"
+uid="uid://bxaan4x2q04x2"
+path="res://.godot/imported/GreySpikes.png-cef77c61e1df54b2c6ae19d2f415ac7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://YellowRedBackground.png"
-dest_files=["res://.godot/imported/YellowRedBackground.png-8097a880a5c20995b9f7adcc06cc0e2b.ctex"]
+source_file="res://Assets/GreySpikes.png"
+dest_files=["res://.godot/imported/GreySpikes.png-cef77c61e1df54b2c6ae19d2f415ac7e.ctex"]
 
 [params]
 
