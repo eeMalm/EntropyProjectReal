@@ -18,6 +18,8 @@ var isDashing = false
 
 var impartedvelocity = Vector2(0.0, 0.0)
 
+func _ready():
+	spawn()
 
 func _physics_process(delta: float) -> void:
 	
@@ -116,3 +118,6 @@ func get_floor() -> Object:
 				return collision.get_collider()
 				
 	return null
+	
+func spawn():
+	position = get_parent().get_node("SpawnPoint").position
