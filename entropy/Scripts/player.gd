@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		impartedvelocity = Vector2(0.0, 0.0)
 		if isDashing:
 			velocity = Vector2(0.0, 0.0)
-			isDashing == false
+			isDashing = false
 		
 	if not isDashing:
 		# Handle jump.
@@ -106,6 +106,7 @@ func _on_dash_timer_timeout():
 		
 func die():
 	get_parent().get_node("Effects").fade()
+	
 
 func get_floor() -> Object:
 	if is_on_floor():

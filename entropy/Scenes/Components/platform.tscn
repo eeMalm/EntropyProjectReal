@@ -1,17 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1mt20wamn5fk"]
+[gd_scene load_steps=3 format=3 uid="uid://d1mt20wamn5fk"]
 
-[ext_resource type="Script" path="res://platform.gd" id="1_gu4jo"]
-[ext_resource type="Texture2D" uid="uid://dygolgrk0hy20" path="res://Assets/Platforms/2x8platform.png" id="2_elxwk"]
+[ext_resource type="Script" path="res://Scripts/platform.gd" id="1_gu4jo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3q7r"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxr52"]
 
 [node name="Platform" type="StaticBody2D"]
 scale = Vector2(7, 7)
 script = ExtResource("1_gu4jo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 texture_filter = 1
-texture = ExtResource("2_elxwk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_k3q7r")
+shape = SubResource("RectangleShape2D_oxr52")

@@ -1,10 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0crfwfu2fk18"]
+[gd_scene load_steps=8 format=3 uid="uid://c0crfwfu2fk18"]
 
-[ext_resource type="PackedScene" uid="uid://cyygmes76je0j" path="res://Scenes/Components/Player.tscn" id="1_8wgvr"]
+[ext_resource type="PackedScene" uid="uid://c3jcmgtpt0ich" path="res://Scenes/Components/Player.tscn" id="1_8wgvr"]
 [ext_resource type="PackedScene" uid="uid://c7wjbrm45ei7" path="res://Scenes/Components/ParralaxBackground.tscn" id="2_8y68m"]
+[ext_resource type="PackedScene" uid="uid://cfwmw8hnvi62l" path="res://Scenes/Components/Camera.tscn" id="3_sj5aj"]
+[ext_resource type="PackedScene" uid="uid://d1mt20wamn5fk" path="res://Scenes/Components/platform.tscn" id="4_6fsil"]
+[ext_resource type="Texture2D" uid="uid://vpryj686e53r" path="res://Assets/GreebleLight1.png" id="5_wq52j"]
+[ext_resource type="PackedScene" uid="uid://dlumw607ujjf1" path="res://Scenes/Components/Effects.tscn" id="6_kg0b3"]
+[ext_resource type="Texture2D" uid="uid://badh7ak3dgk05" path="res://Assets/Platforms/1x4platform.png" id="7_6orbj"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Parallax2D" parent="." instance=ExtResource("2_8y68m")]
+script = null
+
+[node name="Camera2D" parent="." instance=ExtResource("3_sj5aj")]
+
+[node name="Platform" parent="." instance=ExtResource("4_6fsil")]
+position = Vector2(10, 160)
+PlatformSprite = ExtResource("5_wq52j")
+color = Color(0.200885, 0.23835, 0.280591, 1)
+
+[node name="Effects" parent="." instance=ExtResource("6_kg0b3")]
+
 [node name="Player" parent="." instance=ExtResource("1_8wgvr")]
 
-[node name="Parallax2D" parent="." instance=ExtResource("2_8y68m")]
+[node name="Platform2" parent="." instance=ExtResource("4_6fsil")]
+position = Vector2(493, 100)
+PlatformSprite = ExtResource("7_6orbj")
+color = Color(0.103264, 0.276682, 0.55103, 1)
