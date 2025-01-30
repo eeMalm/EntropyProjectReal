@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/platform.gd" id="1_gu4jo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkpld"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuvd3"]
 
 [node name="Platform" type="StaticBody2D"]
 scale = Vector2(7, 7)
@@ -13,4 +13,4 @@ modulate = Color(0, 0, 0, 1)
 texture_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bkpld")
+shape = SubResource("RectangleShape2D_nuvd3")

@@ -9,22 +9,21 @@ func fade():
 	var tween: Tween = create_tween()
 	tween.tween_property($"Fade-Dark", "color:a", 1, 0.5)
 	await tween.finished
+	tween.stop()
 	var tween2 = create_tween()
 	
-	tween2.tween_property($"GameOver", "modulate:a", 1, 3)
+	tween2.tween_property($"GameOver", "modulate:a", 1, 2)
 	await tween2.finished
+	tween.stop()
 	get_parent().get_node("Player").spawn()
-	
-	# Right now the commented out code is quite broken, im working on it tho.
-	
-	#while !Input.is_anything_pressed():
-		#await get_tree().process_frame
-	#print("key pressed")
-	#var tween3 = create_tween()
-	#tween3.tween_property($"GameOver", "modulate:a", 0, 0.5)
-	#await tween3.finished
-	#var tween4 = create_tween()
-	#tween.tween_property($"Fade-Dark", "color:a", 0, 1)
+	$RespawnTimer.start()	
+
+
 	
 	
 	
+
+
+func _on_respawn_timer_timeout() -> void:
+	$"Fade-Dark".modulate = Color(1, 1, 1, 0)
+	$"GameOver".modulate = Color(1, 1, 1, 0)
